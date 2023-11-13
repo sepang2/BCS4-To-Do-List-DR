@@ -27,17 +27,21 @@ const Main = () => {
       </h1>
       <CreateTodo todos={todos} getTodos={getTodos} lastTodoId={lastTodoId} />
       <ul className="bg-green-100 w-96 mx-auto mt-12 h-[30rem] overflow-y-auto">
-        {todos.length === 0
-          ? "길이가 0일 때, 즉 비어있을 때"
-          : todos.map((v, i) => {
-              return (
-                <li key={i} className="h-12 flex items-center text-xl">
-                  <span className="w-1/12 text-right">{v.id}</span>
-                  <span className="w-8/12 pl-2">{v.title}</span>
-                  <button className="w-3/12 hover:font-bold">Detail</button>
-                </li>
-              );
-            })}
+        {todos.length === 0 ? (
+          <span className="flex justify-center font-bold text-blue-500 text-3xl">
+            MISSION COMPLETE !
+          </span>
+        ) : (
+          todos.map((v, i) => {
+            return (
+              <li key={i} className="h-12 flex items-center text-xl">
+                <span className="w-1/12 text-right">{v.id}</span>
+                <span className="w-8/12 pl-2">{v.title}</span>
+                <button className="w-3/12 hover:font-bold">Detail</button>
+              </li>
+            );
+          })
+        )}
       </ul>
     </main>
   );
